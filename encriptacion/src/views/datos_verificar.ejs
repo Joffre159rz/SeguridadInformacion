@@ -1,0 +1,50 @@
+<%- include("partials/_header") %>
+
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-5 offset-md-3 card bg-dark">
+      <div class="card-body">
+        <form action="/update/<%= data.id %>" method="POST">
+          <input
+            type="text"
+            name="msj"
+            value="<%= data.msj %>"
+            placeholder="Mensaje a encriptar"
+            class="form-control mb-3"
+            autofocus
+          />
+          <input
+            type="number"
+            name="llave"
+            value="<%= data.llave%>"
+            placeholder="Llave"
+            class="form-control mb-3"
+          />
+          <input
+            type="text"
+            name="msj_encriptado"
+            value="<%= data.msj_encriptado%>"
+            placeholder="Mensaje Encriptado"
+            class="form-control mb-3"
+            disabled="true"
+          />
+
+          <button type="submit" class="btn btn-primary">Actualizar datos</button>
+          <a href="/verificar/<%= data.id %>" class="btn btn-info">
+            Verificar desencriptando
+          </a>
+        </form>
+      </div>
+      <input
+            type="text"
+            name="msj_desencriptado"
+            value="<%= data.msj_desencriptado%>"
+            placeholder="Mensaje desEncriptado"
+            class="form-control mb-3"
+            disabled="true"
+          />
+    </div>
+  </div>
+</div>
+
+<%- include("partials/_footer") %>
